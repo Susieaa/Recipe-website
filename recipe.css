@@ -1,0 +1,300 @@
+.buttonHeaderReturn{
+  display: flex;
+  margin-right:auto;
+  margin-left: 20px;
+  padding:10px;
+  background-color: #ffa69e;
+}
+#return-icon{
+  width:25px;
+  transform: rotate(180deg);
+}
+section{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+.recette-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:80%;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  border :2px solid black;
+  background-color:#FBDF91 ;
+    
+}
+#titre{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin:20px;
+ 
+  padding:10px;
+  width:80%;
+  font-family:"Tan";
+  background-color: #ffa69e;
+  border:2px solid black;
+  font-size: 20px;
+}
+#titre-centre{
+  padding-left: 50px;
+}
+#indications{
+  display:flex;
+  justify-content: center;
+}
+#indications span{
+ font-size: 18px;
+ font-family: "Sora Bold";
+}
+#indications #nombrePart{
+  padding-left: 10px;
+  border-left: 2px solid black;
+}
+#indications #temps{
+  padding-right: 10px;
+}
+
+.recette-grid{
+  
+  display:grid;
+  justify-items: center;
+  margin-top: 40px;
+  width:80%;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-column-gap: 20px;
+  grid-row-gap:20px;
+  grid-template-areas: 
+  "ingredient etapes"
+  "cuisson etapes"
+  "notes notes";
+}
+
+.ingredient{
+  grid-area:ingredient;
+  width:100%;
+  text-align: center;
+ 
+  background-color: #f4f5f5;
+  border:2px solid black;
+ 
+}
+#ingredient-list{
+ overflow-y:scroll;
+  max-height: 250px;
+}
+.ingredient div{
+  font-family: "Tan";
+  margin: 10px;
+}
+.ingredient ul{
+  margin-top: 20px;
+
+}
+.ingredient li{
+  font-family: "Sora";
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#multi-container{
+  display:flex;
+  justify-content: center;
+  gap:10px;
+}
+.multi{
+  width:45px;
+  height:45px;
+  background-color: #aed9e0;
+  font-family: "Sora Bold";
+  font-size: 16px;
+  border: 2px solid black;
+
+}
+.active{
+  width:45px;
+  height:45px;
+  box-shadow:none;
+  background-color: #a0e6d2;
+}
+#multi-perso{
+  display: flex;
+  text-align: center;
+}
+
+#xperso{
+  width:85%;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Sora";
+  border:none;
+  background-color: transparent;
+
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.etapes{
+  grid-area: etapes;
+  width:100%;
+  text-align: center;
+  max-height:400px;
+  background-color: #aed9e0;
+  border:2px solid black;
+  overflow-y:scroll;
+}
+.etapes div{
+  font-family: "Tan";
+  margin: 10px;
+}
+#etapes-list{
+  font-family: "Sora";
+  text-align: left;
+  padding-left: 20px;
+}
+
+.cuisson{
+  grid-area: cuisson;
+  width:100%;
+  text-align: center;
+  background-color: #ffa69e;
+  border:2px solid black;
+}
+.cuisson div{
+  font-family: "Tan";
+  margin: 10px;
+}
+#mode-cuisson{
+  font-family: "Sora";
+}
+
+.notes{
+  grid-area: notes;
+  width:100%;
+  text-align: center;
+  background-color: #f4f5f5;
+  border:2px solid black;
+
+}
+.notes div{
+  font-family: "Tan";
+  margin: 10px;
+}
+#notes-content{
+  padding-left: 20px;
+  font-family: "Sora";
+  text-align: left;
+}
+@media screen and (max-width: 900px){
+  .recette-grid{
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+    "ingredient"
+    "etapes"
+    "cuisson"
+    "notes";
+  }
+  .recette-container{
+    height:1050px;      
+  }
+  #notes-content{
+    text-align: center;
+  }
+
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition:500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index :20;
+  pointer-events: none;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* allow clicking inside overlay */
+}
+
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 150px auto;
+    padding: 20px;
+    background: #f4f5f5;
+    border : 2px solid black;
+    width: 70%;
+    max-width: 350px;
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: black;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 25px;
+  padding: 10px;
+}
+.popup .close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 30px;
+
+  background-color: #f4f5f5;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  border:none;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+#cross{
+    width: 20px;
+    transform: rotate(45deg);
+    transition:0.3s;
+}
+#cross:hover{
+    scale:1.2;
+
+}
+.popup .content {
+    display: flex;
+
+}
+#form-popup{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="icons/favicon/site.webmanifest">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.97.0/dist/umd/supabase.min.js"></script>
+  
+    <script src="checkUser.js"></script>
+
+</head>
+<body>
+
+     <header class="header">
+            <div class="header-container">
+                <button onclick="returnHomepage()" class="buttonOnTop buttonHeaderReturn header-button" id="button-header-return"><img src="icons/return.png" id="return-icon"/> </button>
+                <h1> Recettes</h1>
+            </div>
+    </header>
+
+    <section>
+        <div id="alertBlock" class="overlay">
+            <div class="alertBlock">
+                <h2 id="alert-message">Sauvegardé !</h2>
+                <div class="save-menu">
+                    <button onclick="closeAlert()" class="buttonOnTop buttonHeaderReturn dac" id="button-header-return">OK</button>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Sauvegardé !</h2>
+                <div class="save-menu">
+                    <button onclick="returnHomepage()" class="buttonOnTop buttonHeaderReturn" id="button-header-return"><img src="icons/home.png" id="dontreturn-icon"/> </button>
+                    <button onclick="closePopup()" class="buttonOnTop buttonHeaderReturn edit" id="button-header-return"><img src="icons/crayon.png" id="dontreturn-icon"/> </button>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="div1">
+                <div class="title-container">
+                    <label for="inputTitle" id="labelTitle">1. Rentrez le titre* :</label> 
+                    <input type="text" id="inputTitle" name="Title" placeholder="Le nom d'une délicieuse recette..">
+                </div>
+            </div>
+            <div class="div2">
+                <label for="inputIngredients">2. Les ingrédients*</label> 
+                <div class="ingredients-container">
+                     
+                    <div class="ingredient-row" >
+                        <input type="number" class="item quantite" placeholder="370" min="0">
+                        <input type="text" class="item unite" placeholder="g">
+                        <input type="text" class="item ingredient-name" placeholder="Farine">
+                        <button type="button" onclick="removeIngredient(this)" class="remove-ingredient"><img src="icons/add-3.png" id="remove-cross"> </button>
+                    </div>
+                    <!-- Add ingredients here -->
+                    <button type="button" onclick="addIngredient()" id="add-ingredient"><img src="icons/add-3.png" id="add-icon-2"> </img></button>
+
+                </div>
+            </div>
+            <div class="div3">
+                <label for="inputSucre">3. Sucré ou salé ?* </label>
+                <button class="inputSucre"><span class="btnText">...</span><img onclick="dropdownSucre()" src="icons/dropdown.png" id="drop"></button>
+                <ul id="dropdownSucre">
+                    <li onclick="putSucre(this)" id="sucre" >Sucré</li>
+                    <li onclick="putSucre(this)" >Salé</li>
+                </ul>
+            </div>
+            <div class="div4">
+                <label for="inputEtapes">4. Les Etapes</label> 
+                <textarea type="text" id="inputEtapes" name="Etapes" placeholder="1. Mélanger les ingrédients..."></textarea>
+            </div>
+            <div class="div5">
+                <label for="cuisson">5. Cuisson</label> 
+                <input type="text" id="cuisson" name="cuisson" placeholder="30 min au four">
+            </div>
+            <div class="div6">
+                <label for="temps">6. Temps total</label> 
+                <input type="text" id="temps" name="temps" placeholder="1 heure">
+            </div>
+            <div class="div7">
+                <label >Ajouter une image</label>
+                <div id="addImage-container">
+                    <label for="imageRecette" class="custom-file-upload">
+
+                        <img src="icons/add-3.png" id="uploadImg" alt="upload">                 
+                    </label>
+                    <input type="file" id="imageRecette" name="imageRecette"  accept="image/*"  onchange="showImage()" />
+                    
+                </div>
+
+            </div>
+            <div class="div9">
+                <label for="inputPersonnes">7. Nombre de parts</label> 
+                <input type="number" id="inputPersonnes" name="personnes" placeholder="4" min="1">
+            </div>
+            <div class="div10">
+                <label for="inputNotes">8. Notes</label> 
+                <textarea type="text" id="inputNotes" name="Notes" placeholder="Une chose particulière..."></textarea>
+            </div>
+            <div class="div8">
+                <button class="buttonOnTop saveRecette" onclick="saveRecette()"> <img id="save" src="icons/checkmark.png"></button> 
+            </div>
+           
+       
+        
+
+       </div>
+    </section>
+
+   
+
+    
+
+
+    
+</body>
+</html>

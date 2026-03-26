@@ -1,0 +1,587 @@
+
+
+.buttonHeaderReturn{
+  display: flex;
+  
+ 
+  padding:10px;
+  background-color: #ffa69e;
+}
+.buttonHeaderReturn .edit{
+   background-color: #a0e6d2;
+}
+
+.header-button{
+  margin-right:auto;
+  margin-left: 20px;
+}
+#return-icon{
+  width:25px;
+  transform: rotate(180deg);
+}
+#dontreturn-icon{
+  width:25px;
+}
+.overlay {
+  display:flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition:500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index :20;
+  pointer-events: none;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* allow clicking inside overlay */
+}
+
+.alertBlock {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height:auto;
+  margin: 150px auto;
+  padding: 20px;
+  background: #f4f5f5;
+  border : 2px solid black;
+  width: 70%;
+  max-width: 350px;
+  position: relative;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.alertBlock h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: black;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 20px;
+  padding: 10px;
+
+}
+.buttonHeaderReturn.dac{
+  background-color: #aed9e0;
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    height:auto;
+    margin: 150px auto;
+    padding: 20px;
+    background: #f4f5f5;
+    border : 2px solid black;
+    width: 70%;
+    max-width: 350px;
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.popup h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: black;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 25px;
+  padding: 10px;
+
+}
+.popup .close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 30px;
+
+  background-color: #f4f5f5;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  border:none;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+.popup .content {
+    display: flex;
+}
+.save-menu{
+  display:flex;
+  justify-content: center;
+  gap:80px;
+  width:100%;
+  margin-bottom: 10px;
+}
+
+section{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+.form-container{
+  padding: 30px 30px 100px 30px;
+  border:2px solid black;
+  height:1200px;
+  width : 80%;
+  max-width:800px;
+  margin-bottom: 100px;
+  display: grid;
+  justify-content: center;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(9, auto);
+  grid-column-gap: 20px;
+  grid-row-gap:30px;
+  grid-template-areas:
+    "div1 div1"
+    "div2 div3"
+    "div2 div4"
+    "div2 div4"
+    "div5 div4"
+    "div6 div9"
+    "div10 div7"
+    "div10 div7"
+    "div8 div7";
+}
+
+
+
+.div9 { grid-area: div9; }
+
+
+
+.div1 {
+  grid-area: div1; 
+  display: flex;
+  justify-content: center;
+  width:100%;
+}
+.title-container{
+ 
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  max-width: 500px;
+}
+
+.form-container label{
+  display: block; 
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+#inputTitle { /*Problem : when typing border radius not null*/
+  
+  box-sizing: border-box;
+  padding: 20px;  
+  font-size: 18px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 0px;
+  background-color: #ffa69e;
+  margin-bottom: 20px;
+  font-family: "Sora";
+}
+
+.div2 {
+  grid-area: div2; 
+}
+
+.ingredients-container{
+  display:flex;
+  flex-direction: column;
+  row-gap: 5px;
+  border: 2px solid black;
+  padding: 10px;
+  width:90%;
+  background-color: #FBDF91;
+  height: 380px;
+  overflow-y:scroll;
+}
+.ingredient-row{
+  display: flex; 
+  justify-content: space-around;
+  gap: 10px;
+}
+.item{
+  border: 2px solid black;
+  width:30%;
+  border-radius: none;
+  outline:none;
+  text-align: center;
+  padding:5px;
+  font-size: 18px;
+  font-family: "Sora";
+  background-color: #f4f5f5;
+ 
+}
+.item.unite{
+  width:20%;
+}
+
+.item.ingredient-name{
+  border: 2px solid black;
+  width:70%;
+  text-align: left;
+}
+#remove-cross{
+  width:20px;
+  transform: rotate(45deg);
+}
+.remove-ingredient{
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+}
+.remove-ingredient:hover{
+  filter: opacity(0.6);
+}
+#add-ingredient{
+  /*margin:auto;*/
+  padding:2px;
+  border:2px solid black;
+  background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#add-ingredient:hover{
+  background-color:#aed9e0;
+}
+/*Remove arrow in number input*/
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.inputSucre{
+  
+  background-color: #FBDF91;
+  box-sizing: border-box;
+  padding: 20px;  
+  font-size: 20px;
+  width:100%;
+
+  font-family: "Sora";
+  font-size: 18px;
+  max-width: 500px;
+  height: 40px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#drop{
+  width:20px;
+  cursor: pointer;
+}
+#drop:hover{
+  opacity: 0.7;
+}
+.div3{
+  margin-bottom: 20px;
+  
+}
+.div3 ul {
+  display: none;
+  padding-left: 0px;
+  margin-top:0px;
+  margin-bottom: 0px;
+  margin-right: auto;
+  font-size: 20px;
+  width:100%;
+  height: 80px;
+  max-width: 500px;
+  
+}
+.div3 ul li{
+  display: block;
+  height:50%;
+  line-height: 40px;
+  padding-left: 10px;
+  background-color: #f4f5f5;
+  border-bottom: 2px solid black;
+  border-left:  2px solid black;
+  border-right:  2px solid black;
+  font-family: "Sora";
+  font-size: 18px;
+  cursor: pointer;
+}
+.div3 ul li:hover{
+  background-color: #aed9e0;
+  
+}
+
+#sucre{
+  border-bottom: 2px solid black;
+}
+.div4{
+  grid-area: div4;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+#inputEtapes{
+  display: flex;
+  width:89%;
+  height:350px;
+  padding: 20px;
+  resize: none;
+  background-color: #aed9e0;
+
+  text-align:left;
+  color:black;
+  font-family: "Sora";
+  font-size: 18px;
+  border: 2px solid black;
+}
+.div5{
+  grid-area: div5;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+#cuisson{
+  display: flex;
+
+  padding: 10px;  
+  font-size: 20px;
+  width:90%;
+  max-width: 500px;
+  font-family: "Sora";
+  border:2px solid black;
+  background-color: #ffa69e;
+  font-family: "Sora";
+  font-size: 18px;
+}
+
+.div6{
+  grid-area: div6;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+#temps{
+  display: flex;
+  padding: 10px;  
+  font-size: 20px;
+  width:90%;
+  max-width: 500px;
+  font-family: "Sora";
+  border:2px solid black;
+  background-color: #aed9e0;
+  font-family: "Sora";
+  font-size: 18px;
+}
+.div7{
+  grid-area: div7;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+#addImage-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /*background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='12%2c 28' stroke-dashoffset='6' stroke-linecap='square'/%3e%3c/svg%3e");*/
+  border :3px dashed black;
+  height:250px;
+  width:250px;
+}
+#addImage-container img{
+  padding: 10px;
+  background-color: #f4f5f5;
+  
+}
+.custom-file-upload{
+  
+  position: absolute; /* Position absolue par rapport au conteneur parent */
+  cursor: pointer;
+  z-index: 10;  
+  padding-top: 20px;
+}
+#imageRecette {
+  display: none; 
+}
+#uploadImg{
+  width:30px;
+  padding-bottom: 0px;
+}
+#imagePreview{
+  width:90%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.div9{
+  grid-area: div9;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+#inputPersonnes{
+  display: flex;
+  padding: 10px;  
+  font-size: 20px;
+  width:90%;
+  max-width: 500px;
+  font-family: "Sora";
+  border:2px solid black;
+  background-color: #FBDF91;
+  font-family: "Sora";
+  font-size: 18px;
+}
+.div10{
+  grid-area: div10;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+#inputNotes{
+  display: flex;
+  width:85%;
+  max-width: 500px;
+  height:100px;
+  padding: 20px;
+  resize: none;
+  background-color: #FBDF91;
+
+  text-align:left;
+  color:black;
+  font-family: "Sora";
+  font-size: 18px;
+  border: 2px solid black;
+}
+
+.div8{
+  grid-area: div8;
+  display: flex;
+  justify-content: center;
+  width:90%;
+}
+.saveRecette{
+  height:100px;
+  width:100px;
+  border: 2px solid black;
+  margin-top: 20px;
+}
+#save{
+  width:30px;
+  transform: rotate(-10deg);
+}
+.saveRecette:hover{
+  background-color: #a0e6d2;
+}
+
+
+@media screen and (max-width: 900px){
+
+  .form-container{
+    height:2200px;
+    grid-template-columns:1fr;
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas:
+    "div1"
+    "div2"
+    "div3"
+    "div4"
+    "div5"
+    "div6"
+    "div9"
+    "div10"
+    "div7"
+    "div8";
+  }
+
+  .div1{
+    width:100%;
+    justify-content: flex-start;
+    
+  }
+  #inputTitle{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ingredients-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  .div3{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    grid-area: div3; 
+  }
+  .inputSucre{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .div3 ul {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .div4{
+    height:391px !important;
+  }
+  #inputEtapes{
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  #cuisson{
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  #temps{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FBDF91;
+  }
+  .div7{
+    margin-top: 0px;
+  }
+  #inputPersonnes{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aed9e0;
+  }
+  .div8{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #inputNotes{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffa69e;
+  }
+
+}

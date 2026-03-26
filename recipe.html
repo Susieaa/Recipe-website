@@ -1,0 +1,91 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="icons/favicon/site.webmanifest">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="recipe.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.97.0/dist/umd/supabase.min.js"></script>
+    <script src="script-recette.js"></script>
+
+</head>
+<body>
+    
+    
+<header class="header">
+        <div class="header-container">
+            <button onclick="returnHomepage()" class="buttonOnTop buttonHeaderReturn" id="button-header-return"><img src="icons/return.png" id="return-icon"/> </button>
+            <h1 > Recettes</h1>
+            <button onclick="addRecipe()" class="buttonOnTop buttonHeader" id="button-header"><img src="icons/add-3.png" id="add-icon-2"> </img></button>
+
+        </div>
+</header>
+
+<section>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+
+            <h2>Authentification</h2>
+            <button class="close" onclick="closePopup()"><img src="icons/add-3.png" id="cross"> </button>
+            <div class="content">
+                <form id="form-popup">
+                    <label for="mail">Mail :</label>
+                    <input type="email" class="input mail" id="mail" name="search" placeholder="dupont@canard.com" required="required">
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="password" class="input mdp"  id="mdp" name="search" placeholder="1234 (j'espère pas)" required="required">
+                    <button class="buttonOnTop buttonForm" type="button" onclick="verifyLogin()">Valider</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="recette-container">
+        <div id="titre">
+            <div></div>
+            <div id="titre-centre">Les muffins</div>  
+            <button class="buttonOnTop edit" id="edit-recette" onclick="editRecipe()"><img id="edit-img" src="icons/crayon.png"/></button></div>
+        <div id="indications"> <span>Temps total : <span id="temps"> 30 min</span> </span><span id="nombrePart">6 parts</span></div>
+        <div class="recette-grid">
+            <div class="ingredient">
+                <div>Ingredients</div>
+                <div id="ingredient-list">
+                    <ul>
+                        <li class="ingredient-row">
+                            <span id="quantite">300</span> <span id="unite">g</span> <span id="nom">Farine</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="multi-container">
+                    <button class="buttonOnTop multi" id="fois1" onclick="timesOne(this)">x1</button>
+                    <button class="buttonOnTop multi" id="fois2" onclick="timesTwo(this)">x2</button>
+                    <button class="buttonOnTop multi" id="multi-perso" onclick="timesPerso(this)"><input type="number" id="xperso" max="10" placeholder="2.5" oninput="timesPersoChange(this)"></button>
+                </div>
+
+            </div>
+            <div class="etapes">
+                <div>Les étapes</div>
+                <div id="etapes-list">
+                    
+                </div>
+            </div>
+            <div class="cuisson"> 
+                <div>Cuisson</div>
+                <div id="mode-cuisson">10 min au micro-onde</div>
+            </div>
+            <div class="notes">
+                <div>Notes</div>
+                <div id="notes-content">Recette de ma grand-mère, super facile à faire et délicieuse !</div>
+            </div>
+        </div>
+   
+</section>
+</body>
+</html>

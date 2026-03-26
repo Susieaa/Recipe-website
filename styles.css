@@ -1,0 +1,478 @@
+
+/* body{
+  
+  background-color: #fdfcdc;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: #0081a7; 
+
+  -webkit-mask-image: url(images/grid-pattern-4.png);
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: 150px;
+
+  mask-image: url(images/grid-pattern-4.png);
+  mask-repeat: repeat;
+  mask-size: 80px;
+
+  pointer-events: none;
+} */
+
+@font-face {
+    font-family:"Tan" ;
+    src: url(Fonts/TAN-Headline/TANHEADLINE-Regular.otf);
+}
+@font-face {
+    font-family:"Sora" ;
+    src: url(Fonts/Idiqlat/Sora/static/Sora-SemiBold.ttf);
+}
+@font-face {
+    font-family:"Sora Bold" ;
+    src: url(Fonts/Idiqlat/Sora/static/Sora-Bold.ttf);
+}
+html{
+    margin: 0;
+    height:100%;
+}
+body{
+    display: grid;
+  grid-template-rows: auto 1fr auto;
+    background-image: url(images/paper-4.png);
+    background-repeat: repeat;
+    font-size: 16px;
+    font-family: "Sora";
+    height: 100%;
+    margin: 0;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    height: 60px;
+    background-color: #aed9e0;
+    border-top: 2px solid black;
+    font-family: "Sora";
+    color: black;
+}
+header {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 20px;
+    margin: 0 20px 0 20px;
+    min-height: 90px;
+    height: 90px;
+    z-index: 10;
+    /* Remove z-index from header */
+}
+main{
+    flex:1;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #aed9e0;
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+}
+#left{
+    margin-right: auto;
+}
+header h1{
+    padding-top:5px;
+    align-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+    font-family: "Tan" ;
+    color: black;
+    font-size: 40px;    
+}
+.buttonOnTop {
+   
+   
+    align-items: center;
+    text-align: center;
+   
+    border: 2px solid #000000;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    
+   
+    transform: translateZ(0); 
+    box-shadow: 4px 3px 0px black;
+    transition: 0.1s;
+}
+.buttonOnTop.buttonHeader{
+    display: none;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 20px;
+    background-color: #ffa69e;
+}
+
+.buttonOnTop:hover{
+    box-shadow: 0px 0px black;
+}
+#add-icon-2{
+    padding: 10px;
+    width:20px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 60px;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    position: relative;
+    border : 2px solid #000000;
+    padding:20px;
+    font-family: "Sora";
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: transparent;
+   
+}
+
+.button:after {
+  background-color: #111;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+  
+ 
+}
+
+.button:hover:after {
+  transform: translate(1px, 1px);
+}
+
+.button:active {
+  outline: 0;
+}
+
+.button:hover {
+  outline: 0;
+}
+.button.button-add{
+    background-color:#ffa69e ;
+    color : black;
+    font-size: 20px;
+    transition: all 0.3s ease-out;
+    
+}
+.button.button-add:hover{
+    background-color:#ff9e95 ;
+}
+#add-icon{
+    padding-right: 10px;
+    width:15px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+}
+#searchBar {
+  box-sizing: border-box;
+  padding-left: 50px;  
+  font-size: 20px;
+  max-width:400px;
+  width:70%;
+  height: 40px;
+  border: 2px solid black;
+  background-color: #f4f5f5;
+  background-image: url("icons/search.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  margin-bottom: 20px;
+}
+
+#searchBar:focus {
+  background-color:#aed9e0;
+  outline: none;
+}
+
+.container-choice {
+    display:flex;
+    justify-content: center;
+    gap:6rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.button.choice{
+    background-color:#f4f5f5 ;
+    width:130px;
+    justify-content: center;
+    font-size: 16px;
+}
+.button.choice:hover{
+    background-color: #aed9e0;
+}
+
+
+.noConnection{
+    margin:auto;
+    display: none;
+    width:70%;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+    height:200px;
+    
+}
+#wifi-img{
+    width: 70px;
+    height: 70px;
+}
+
+
+#container-fiches{
+    display:grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(3,260px);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:900px ) {
+    #container-fiches{
+        grid-template-columns: repeat(2,260px);
+    }
+}
+@media screen and (max-width:700px ) {
+    .container-choice{
+        gap:2rem;
+    }
+    #container-fiches{
+        grid-template-columns: repeat(2,260px);
+    }
+}
+@media screen and (max-width:550px ) {
+    #container-fiches{
+        grid-template-columns: repeat(1,260px);
+    }
+}
+
+.fiche-recette{
+    display:none;
+    flex-direction: column;
+    height: 255px;
+    width : 200px;
+    padding:20px;
+    border: 2px solid black;
+    background-color: #FBDF91;
+    text-align: left;
+    font-size: 20px;
+    font-family: "Sora";
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+.image-container{
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+#fiche-img{
+    display: block;
+    width:100%;
+    height : 100%;
+    object-fit: cover;
+  
+}
+.fiche-recette:hover {
+    
+     box-shadow:
+        0 0 0 4px #aed9e0;
+
+}
+
+.tag-fiche {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1dvb;
+    gap:3px;
+}
+.tag-fiche div{
+    background-color: #ffa69e;
+    padding: 5px;
+    font-size: 16px;
+    border:2px solid black;
+}
+
+.fiche-buttons{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    gap:10px;
+    
+}
+
+.buttonOnTop.edit{
+    width:50px;
+    height:50px;
+    background-color: #a0e6d2
+}
+.buttonOnTop.suppr{
+    width:50px;
+    height:50px;
+    background-color: #f38686;
+}
+#edit-img{
+    width:30px;
+}
+#suppr-img{
+    width:30px;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition:500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index :20;
+  pointer-events: none;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* allow clicking inside overlay */
+}
+
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 150px auto;
+    padding: 20px;
+    background: #f4f5f5;
+    border : 2px solid black;
+    width: 70%;
+    max-width: 350px;
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: black;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 25px;
+  padding: 10px;
+}
+.popup .close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 30px;
+
+  background-color: #f4f5f5;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  border:none;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+#cross{
+    width: 20px;
+    transform: rotate(45deg);
+    transition:0.3s;
+}
+#cross:hover{
+    scale:1.2;
+
+}
+.popup .content {
+    display: flex;
+
+}
+#form-popup{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    
+}
+.input{
+    margin:10px 10px 10px 0px;
+    box-sizing: border-box;
+    padding-left: 10px;  
+    font-size: 20px;
+    height: 40px;
+
+    border: 2px solid black;
+    background-color: #f4f5f5;
+    margin-bottom: 20px;
+}
+.input.mail{
+    width:100%;
+}
+.input.mdp{
+    width:100%;
+}
+
+.buttonOnTop.buttonForm{
+    margin:10px auto 10px auto;
+    width:50%;
+    font-family: "Sora";
+    font-size: 20px;
+    padding: 10px;
+}
+
+.buttonOnTop.buttonForm:hover{
+   
+    background-color: #aed9e0;
+}
+

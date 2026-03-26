@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="icons/favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.97.0/dist/umd/supabase.min.js"></script>
+
+    <script src="script.js"></script>
+
+</head>
+<body>
+
+    <header class="header">
+            <div class="header-container">
+                <div id="left"></div>
+                <h1> Recettes</h1>
+                <button onclick="addRecipe()" class="buttonOnTop buttonHeader" id="button-header"><img src="icons/add-3.png" id="add-icon-2"> </img></button>
+            </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <button onclick="addRecipe()" class="button button-add" ><img src="icons/add-3.png" id="add-icon"> </img>  Nouvelle recette</button>
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+
+                <h2>Authentification</h2>
+                <button class="close" onclick="closePopup()"><img src="icons/add-3.png" id="cross"> </button>
+                <div class="content">
+                    <form id="form-popup">
+                        <label for="mail">Mail :</label>
+                        <input type="email" class="input mail" id="mail" name="search" placeholder="dupont@canard.com" required="required">
+                        <label for="mdp">Mot de passe :</label>
+                        <input type="password" class="input mdp"  id="mdp" name="search" placeholder="1234 (j'espère pas)" required="required">
+                        <button class="buttonOnTop buttonForm" type="button" onclick="verifyLogin()">Valider</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form>
+            <input type="text" id="searchBar" oninput="searchRecipe()"  name="search" placeholder="Chercher une recette...">
+        </form>
+        <div class="container-choice">
+            <button class="button choice" onclick="selectRecipe('sucré')"> Sucré</button>
+            <button class="button choice" onclick="selectRecipe('salé')"> Salé</button>
+            <button class="button choice" onclick="selectRecipe('all')"> Tout </button>
+        </div>
+         <div class="noConnection">
+            <img id="wifi-img" src="icons/nowifi.png"/>
+            <h3> Pas de connexion pas de chocolat</h1>
+               
+        </div>
+
+        <div id="container-fiches">
+
+           
+            
+            <div class="fiche-recette" onclick="openRecipe(this)"> 
+                <div class="image-container">
+                    <img id="fiche-img" src="images/recettes/muffins.jpg"></img>
+                </div>
+                
+                <span id="fiche-titre">Boubiboulga</span> 
+               <div class="tag-fiche"> 
+                    <div>Temps : <span id="fiche-temps">30 min</span></div>
+                    <div id="fiche-sucre">Nope</div>
+                </div>
+                <div class="fiche-buttons">
+                    <button class="buttonOnTop edit" onclick="editRecipe(this)"> <img id="edit-img" src="icons/crayon.png"/></button>
+                    <button class="buttonOnTop suppr" onclick="deleteRecipe(this)"> <img id="suppr-img" src="icons/bin-full.png"/></button>
+                </div>
+
+            </div>
+            
+            
+        </div>
+    </main>
+</body>
+
+<footer>
+   
+    <span>Fait par Suly</span>
+   
+</footer>
+
+</html>
