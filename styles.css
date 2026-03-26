@@ -34,16 +34,17 @@ body::before {
 }
 html{
     margin: 0;
-    height:100vh;
+    height:100%;
 }
 body{
     display: grid;
-  grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
     background-image: url(images/paper-4.png);
     background-repeat: repeat;
     font-size: 16px;
     font-family: "Sora";
     height: 100%;
+    min-height: 100dvh;
     margin: 0;
 }
 footer{
@@ -69,9 +70,9 @@ header {
     /* Remove z-index from header */
 }
 main{
-    flex:1;
+    min-height: 0;
+    overflow-y: auto;
 }
-
 .header-container {
     display: flex;
     align-items: center;
