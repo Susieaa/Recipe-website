@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       // User is logged in, load the page content
       console.log("User is logged in:", session.user.email);
   }
-   
 
     
     if(load=='true'){
@@ -233,8 +232,15 @@ async function imageUpload() {
 
     if (uploadError) {
       console.error("Erreur lors de l'upload :", uploadError.message);
+      if (uploadError.message.includes("size")) {
+        document.getElementById("load-block").classList.remove("show");
+        openAlert("L'image est trop lourde, choisi une image de moins de 1 Mo.");
+        return 0;
+      }
+              document.getElementById("load-block").classList.remove("show");
+
       openAlert("Je n'ai pas réussi à uploader ton image");
-      return;
+      return 0;
     }
 
     console.log("Image remplacée avec succès :", uploadData);
@@ -258,8 +264,10 @@ async function imageUpload() {
 
     if (error) {
         console.error("Upload error:", error.message);
-        openAlert("J'ai pas réussi à prendre ton image");
-        return;
+        document.getElementById("load-block").classList.remove("show");
+
+        openAlert("Je n'ai pas réussi à prendre ton image");
+        return 0;
     }
 
     console.log("File uploaded:", data);
@@ -311,7 +319,17 @@ async function saveRecette(){
   }
   //if an image has been uploaded -> upload the image to supabase
   if(imageChoosen){
-    imageName= await imageUpload(); 
+    document.getElementById("load-block").classList.add("show");
+    var temp=0;
+    temp= await imageUpload(); 
+    console.log("temp:",temp);
+    if(temp==0){
+      return;
+    }
+    else{
+      imageName=temp;
+    }
+    document.getElementById("load-block").classList.remove("show");
   }
   console.log("image name:",imageName);
   console.log(imageChoosen);
