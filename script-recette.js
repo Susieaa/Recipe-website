@@ -108,8 +108,8 @@ async function loadRecipe(titre){
     document.getElementById("mode-cuisson").innerHTML=data[0].cuisson;
   }
   document.getElementById("temps").textContent=data[0].temps;
-  if(data[0].notes==null){
-   document.getElementById("notes-content").textContent="Aucune note pour cette recette";
+  if(data[0].notes==null || data[0].notes==""){
+    document.getElementById("notes-content").textContent="Aucunes notes pour cette recette";
 
   }
   else{
@@ -177,7 +177,7 @@ function timesTwo(btn){
 
 function timesPerso(btn){
 
-  btn.classList.add(' gactive');
+  btn.classList.add('active');
   document.getElementById("fois1").classList.remove('active');
   document.getElementById("fois2").classList.remove('active');
 
