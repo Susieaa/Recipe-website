@@ -73,6 +73,7 @@ main{
     min-height: 0;
     overflow-y: auto;
 }
+
 .header-container {
     display: flex;
     align-items: center;
@@ -96,6 +97,11 @@ header h1{
     font-family: "Tan" ;
     color: black;
     font-size: 40px;    
+}
+@media screen and (max-width: 430px) {
+    header h1{
+        font-size: 30px;
+    }
 }
 .buttonOnTop {
    
